@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Purple Star Sparkles</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #111;
+    }
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #c084fc, transparent);
+      clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%,
+        79% 91%, 50% 70%, 21% 91%, 32% 57%,
+        2% 35%, 39% 35%
+      );
+      pointer-events: none;
+      animation: sparkleFade 1s ease-out forwards;
+    }
+    @keyframes sparkleFade {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(2) translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.left = `${e.clientX}px`;
+      sparkle.style.top = `${e.clientY}px`;
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 1000);
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MICAH + Sparkles</title>
+
+  <!-- cool square-ish caps font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    /* glowing text */
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12vw;
+      color: #a855f7;                 /* purple fill */
+      -webkit-text-stroke: 3px #000;  /* black stroke */
+      text-shadow:
+        0 0 10px #ec4899,
+        0 0 20px #ec4899,
+        0 0 30px #ec4899,
+        0 0 40px #ec4899;
+      animation: pulse 2s infinite ease-in-out;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    @keyframes pulse {
+      0%,100% { text-shadow:
+        0 0 10px #ec4899,
+        0 0 20px #ec4899,
+        0 0 30px #ec4899,
+        0 0 40px #ec4899; }
+      50% { text-shadow:
+        0 0 20px #f472b6,
+        0 0 40px #f472b6,
+        0 0 60px #f472b6,
+        0 0 80px #f472b6; }
+    }
+
+    /* sparkle stars */
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #c084fc, transparent);
+      clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%,
+        79% 91%, 50% 70%, 21% 91%, 32% 57%,
+        2% 35%, 39% 35%
+      );
+      pointer-events: none;
+      animation: sparkleFade 1s ease-out forwards;
+    }
+
+    @keyframes sparkleFade {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(2) translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <h1>MICAH</h1>
+
+  <script>
+    document.addEventListener('mousemove', e => {
+      const s = document.createElement('div')
+      s.className = 'sparkle'
+      s.style.left = `${e.clientX}px`
+      s.style.top = `${e.clientY}px`
+      document.body.appendChild(s)
+      setTimeout(() => s.remove(), 1000)
+    })
+  </script>
+</body>
+</html>
