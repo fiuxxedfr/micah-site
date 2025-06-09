@@ -5,12 +5,9 @@
   <title>Micah's Custom Website</title>
 
   <style>
-    /* Load your custom Brunson font */
     @font-face {
       font-family: 'Brunson';
       src: url('Brunson.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
     }
 
     body {
@@ -24,12 +21,11 @@
       flex-direction: column;
     }
 
-    /* glowing text with custom font */
     h1 {
       font-family: 'Brunson', sans-serif;
       font-size: 12vw;
-      color: #9900cc;                 /* purple fill */
-      -webkit-text-stroke: 3px #000;  /* black stroke */
+      color: #9900cc;
+      -webkit-text-stroke: 3px #000;
       text-shadow:
         0 0 10px #ec4899,
         0 0 20px #ec4899,
@@ -58,7 +54,6 @@
       }
     }
 
-    /* sparkle stars */
     .sparkle {
       position: absolute;
       width: 10px;
@@ -84,20 +79,30 @@
       }
     }
 
-    /* Instagram logo styling */
-    #insta-logo {
-      cursor: pointer;
+    .logo-row {
+      display: flex;
+      gap: 30px;
       margin-bottom: -10px;
-      margin-left: -400px;
-      width: 170px;
-      height: 100px;
+      margin-left: -250px;
+    }
+
+    .logo-row img {
+      cursor: pointer;
+      width: 70px;
+      height: 70px;
       transition: transform 0.3s ease;
+    }
+
+    .logo-row img:hover {
+      transform: translateY(-10px);
     }
   </style>
 </head>
 <body>
-  <!-- Instagram PNG logo -->
-  <img id="insta-logo" src="instagram.png" alt="Instagram Logo" />
+  <div class="logo-row">
+    <img src="instagram.png" id="insta-logo" alt="Instagram Logo" />
+    <img src="tiktok.png" id="tiktok-logo" alt="TikTok Logo" />
+  </div>
 
   <h1>MICAH</h1>
 
@@ -111,19 +116,12 @@
       setTimeout(() => s.remove(), 1000);
     });
 
-    // Hover lift effect
-    const instaLogo = document.getElementById('insta-logo');
-
-    instaLogo.addEventListener('mouseenter', () => {
-      instaLogo.style.transform = 'translateY(-10px)';
-    });
-    instaLogo.addEventListener('mouseleave', () => {
-      instaLogo.style.transform = 'translateY(0)';
-    });
-
-    // Click to go to website
-    instaLogo.addEventListener('click', () => {
+    document.getElementById('insta-logo').addEventListener('click', () => {
       window.open('https://www.instagram.com/i.fw.micah', '_blank');
+    });
+
+    document.getElementById('tiktok-logo').addEventListener('click', () => {
+      window.open('https://www.tiktok.com/@i.fw.micah', '_blank');
     });
   </script>
 </body>
